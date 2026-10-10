@@ -1,5 +1,5 @@
 // ====== Configuration ======
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://mansik-santulan-score-2-qbwh.onrender.com/";
 const PREDICT_URL = `${API_BASE_URL}/predict`;
 
 // Assumed upper bound of the score, used ONLY to draw the meter and label.
