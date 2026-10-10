@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Mental Health Score Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <main class="container">
+    <header class="hero">
+      <span class="badge">AI Powered</span>
+      <h1>Student Mental Health Score Predictor</h1>
+      <p>Enter a student's lifestyle and social media habits to estimate a mental health score.</p>
+    </header>
+
+    <div id="alert" class="alert hidden" role="alert"></div>
+
+    <form id="predict-form" novalidate>
+      <section class="card">
+        <h2>Profile</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="10" max="100" step="1" placeholder="e.g. 20" required />
+            <small class="hint">Between 10 and 100</small>
+            <small class="error" data-error-for="age"></small>
+          </div>
+
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="" disabled selected>Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <small class="error" data-error-for="gender"></small>
+          </div>
+
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+              <option value="" disabled selected>Select country</option>
+              <option>India</option>
+              <option>USA</option>
+              <option>Canada</option>
+              <option>Australia</option>
+              <option>UK</option>
+              <option>Germany</option>
+              <option>Mexico</option>
+              <option>Turkey</option>
+              <option>France</option>
+              <option>Other</option>
+            </select>
+            <small class="error" data-error-for="country"></small>
+          </div>
+
+          <div class="field">
+            <label for="academic_level">Academic Level</label>
+            <select id="academic_level" name="academic_level" required>
+              <option value="" disabled selected>Select level</option>
+              <option>High School</option>
+              <option>Undergraduate</option>
+              <option>Graduate</option>
+            </select>
+            <small class="error" data-error-for="academic_level"></small>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Social Media Usage</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="most_used_platform">Most Used Platform</label>
+            <select id="most_used_platform" name="most_used_platform" required>
+              <option value="" disabled selected>Select platform</option>
+              <option>Facebook</option>
+              <option>LinkedIn</option>
+              <option>Instagram</option>
+              <option>Snapchat</option>
+              <option>Twitter</option>
+              <option>YouTube</option>
+              <option>TikTok</option>
+              <option>LINE</option>
+              <option>KakaoTalk</option>
+              <option>VKontakte</option>
+              <option>WhatsApp</option>
+              <option>WeChat</option>
+            </select>
+            <small class="error" data-error-for="most_used_platform"></small>
+          </div>
+
+          <div class="field">
+            <label for="purpose_of_use">Purpose of Use</label>
+            <select id="purpose_of_use" name="purpose_of_use" required>
+              <option value="" disabled selected>Select purpose</option>
+              <option>Networking</option>
+              <option>Education</option>
+              <option>Entertainment</option>
+              <option>News</option>
+            </select>
+            <small class="error" data-error-for="purpose_of_use"></small>
+          </div>
+
+          <div class="field">
+            <label for="avg_daily_usage_hours">Avg Daily Usage (hours)</label>
+            <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" placeholder="e.g. 4.5" required />
+            <small class="hint">0 to 24</small>
+            <small class="error" data-error-for="avg_daily_usage_hours"></small>
+          </div>
+
+          <div class="field">
+            <label for="daily_unlocks">Daily Phone Unlocks</label>
+            <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" placeholder="e.g. 80" required />
+            <small class="hint">0 or more</small>
+            <small class="error" data-error-for="daily_unlocks"></small>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Lifestyle</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="study_hours">Study Hours (per day)</label>
+            <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" placeholder="e.g. 3" required />
+            <small class="hint">0 to 24</small>
+            <small class="error" data-error-for="study_hours"></small>
+          </div>
+
+          <div class="field">
+            <label for="physical_activity_hours">Physical Activity (hours)</label>
+            <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.1" placeholder="e.g. 1" required />
+            <small class="hint">0 to 24</small>
+            <small class="error" data-error-for="physical_activity_hours"></small>
+          </div>
+
+          <div class="field">
+            <label for="sleep_hours_per_night">Sleep (hours per night)</label>
+            <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" placeholder="e.g. 7" required />
+            <small class="hint">0 to 24</small>
+            <small class="error" data-error-for="sleep_hours_per_night"></small>
+          </div>
+
+          <div class="field">
+            <label for="stress_level">Stress Level</label>
+            <select id="stress_level" name="stress_level" required>
+              <option value="" disabled selected>Select stress level</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Very High</option>
+            </select>
+            <small class="error" data-error-for="stress_level"></small>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="reset-btn" class="btn btn-ghost">Reset</button>
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          <span class="btn-label">Predict Score</span>
+          <span class="spinner hidden" aria-hidden="true"></span>
+        </button>
+      </div>
+    </form>
+
+    <section id="result" class="card result hidden" aria-live="polite">
+      <p class="result-eyebrow">Predicted Mental Health Score</p>
+      <div class="score-wrap">
+        <span id="score-value" class="score-value">0</span>
+        <span class="score-max" id="score-max"></span>
+      </div>
+      <div class="meter"><div id="meter-fill" class="meter-fill"></div></div>
+      <p id="score-label" class="score-label"></p>
+      <p class="disclaimer">This is a model estimate for informational purposes only and is not a medical diagnosis.</p>
+    </section>
+  </main>
+
+  <div id="loading-overlay" class="loading-overlay hidden" aria-hidden="true">
+    <div class="loader"></div>
+    <p>Analyzing data...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
