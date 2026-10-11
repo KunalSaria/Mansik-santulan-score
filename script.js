@@ -1,9 +1,5 @@
 // ====== Configuration ======
-<<<<<<< HEAD
 const API_BASE_URL = "https://mansik-santulan-score-2-qbwh.onrender.com";
-=======
-const API_BASE_URL = "https://mansik-santulan-score-2-qbwh.onrender.com/";
->>>>>>> f982dd869128342b909f0da941a48738085b6d54
 const PREDICT_URL = `${API_BASE_URL}/predict`;
 
 // Assumed upper bound of the score, used ONLY to draw the meter and label.
